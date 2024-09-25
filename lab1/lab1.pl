@@ -84,10 +84,6 @@ alliance(ulfgar, thorik).
 
 /* Правила */
 
-% Правило о том, что персонаж является человеком и воином
-is_human_warrior(Character) :-
-    character_race_of(Character, human),
-    character_class_of(Character, warrior).
 
 % Правило о том, что персонаж является эльфом и магом или друидом
 is_elf_magic_user(Character) :-
@@ -110,20 +106,6 @@ can_heal(Character) :-
     (character_class_of(Character, priest); character_class_of(Character, druid)),
     character_spell(Character, heal).
 
-% Правило о том, что персонаж принадлежит к союзам рыцарей или магов
-is_knight_or_mage(Character) :-
-    character_alliance(Character, knights_of_valor);
-    character_alliance(Character, circle_of_mages).
-
-% Правило о том, что персонаж является дворфом и носит молот
-is_dwarf_with_hammer(Character) :-
-    character_race_of(Character, dwarf),
-    character_weapon(Character, hammer).
-
-% Правило о том, что персонаж может использовать заклинания щита (если персонаж маг и знает заклинание "shield")
-can_cast_shield(Character) :-
-    character_class_of(Character, wizard),
-    character_spell(Character, shield).
 
 % Правило о том, что персонаж принадлежит к союзу "Изумрудный Анклав" и может лечить
 is_emerald_healer(Character) :-
@@ -135,3 +117,8 @@ is_orc_berserker_without_alliance(Character) :-
     character_race_of(Character, orc),
     character_class_of(Character, berserker),
     \+ character_alliance(Character, _).
+    
+% Правило о том, что персонаж владеет дальнобойным оружием (луком или посохом)
+has_ranged_weapon(Character) :-
+    character_weapon(Character, bow);
+    character_weapon(Character, staff).
