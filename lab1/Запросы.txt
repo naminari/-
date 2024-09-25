@@ -1,0 +1,64 @@
+- Простые запросы к базе знаний для поиска фактов.
+
+Является ли Артур Челвеком?
+character_race_of(arthur, human)
+
+
+Обладает ли Мерилн заклинанием исциления?
+character_spell(merlin, heal)
+
+Вступили ли в союз Торик и Лара?
+alliance(thorik, lara)
+
+Ульфгар часть союза Каменного Молота?
+character_alliance(ulfgar, stone_hammers)
+
+Торик женщина?
+character_sex(thorik, woman)
+
+- Запросы, использующие логические операторы (и, или, не) для формулирования сложных условий.
+
+Вывести список людей мужского пола
+character_race_of(X, human), character_sex(X, man)
+
+
+Есть ли в компании раса дварфов или троллей?
+character_race(troll);character_race(dwarf)
+
+Не женщина ли Фаелар?
+not(character_sex(faelar, man))
+
+Кто из персонажей относится эльфам и обладает классом друид?
+character_class_of(X, druid), character_race_of(X, elf)
+
+Какие персонажи в союзе с Артуром или члены клана Измурудный анклав?
+alliance(arthur, X), character_alliance(X, emerald_enclave)
+
+
+- Запросы, использующие переменные для поиска объектов с определенными характеристиками.
+
+Найти всех персонажей, которые являются воинами
+character_class_of(Character, warrior).
+
+Найти всех персонажей, которые принадлежат союзу "Изумрудный Анклав"
+character_alliance(Character, emerald_enclave).
+
+Найти всех персонажей, которые знают заклинание "fireball"
+character_spell(Character, fireball)
+
+
+- Запросы, которые требуют выполнения правил для получения результата.
+
+Найти всех персонажей, которые являются воинами и обладают двуручным оружием (мечом, топором или молотом)
+is_warrior_with_two_handed_weapon(Character)
+
+
+Найти всех орков, которые являются берсерками и не принадлежат ни к одному союзу
+is_orc_berserker_without_alliance(Character)
+
+
+Найти всех дварфов, которые используют молот:
+is_dwarf_with_hammer(Character)
+
+Есть ли персонажи, которые владеют дальнобойным оружием
+has_ranged_weapon(_).
