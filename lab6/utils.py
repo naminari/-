@@ -103,7 +103,7 @@ def hyperparameter_search(X_train, y_train, X_test, y_test):
                 best_score = score
                 best_params = {'learning_rate': lr, 'max_iter': max_iter}
                 
-    print(f"Best parameters: {best_params}")
+    print(f"Best  parameters: {best_params}")
     return best_params
 
 def precision_score_manual(y_true, y_pred):

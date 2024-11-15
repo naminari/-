@@ -1,7 +1,7 @@
 import numpy as np
 
 def gini_impurity(y):
-    """Расчет примеси Джини."""
+    """Расчет примеси Джини. """
     _, counts = np.unique(y, return_counts=True)  # Считаем количество классов
     probabilities = counts / len(y)  # Вычисляем вероятности классов
     return 1 - np.sum(probabilities ** 2)  # Формула примеси Джини

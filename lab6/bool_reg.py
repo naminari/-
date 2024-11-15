@@ -78,5 +78,5 @@ precision = util.precision_score_manual(y_test, pred_res)
 recall = util.recall_score_manual(y_test, pred_res)
 f1 = util.f1_score_manual(y_test, pred_res)
     
-print(f'Accuracy: {accuracy}, Precision: {precision}, Recall: {recall}, F1-Score: {f1}')
+print(f'Accuracy:  {accuracy}, Precision: {precision}, Recall: {recall}, F1-Score: {f1}')
 
